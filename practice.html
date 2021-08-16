@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map making</title>
+</head>
+<!--css link-->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<style>
+    #map{
+        color: red;
+        background-color: green;
+        width: 100%;
+        height: 600px;
+
+    }
+
+</style>
+<body>
+       <div id='map'></div>
+       
+<!--jquery link-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!--js link-->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<!--geojson js-->
+<script>
+    var map = L.map('map').setView([28.3949,84.1240], 7);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+L.marker([28.3949, 84.1240]).addTo(map)
+    .bindPopup('pokhara')
+ .openPopup()
+</script>
+<script src="./geojson.js"></script>
+<script>
+    L.geoJSON(data).addTo(map)
+</script>
+</body>
+</html>
